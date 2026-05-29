@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Project Disco — Rider Técnico Trio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-image: url('Gemini_Generated_Image_pe2i5dpe2i5dpe2i.png');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.65);
+            z-index: -1;
+        }
+
+        /* ── PRINT ── */
+        @media print {
+            body { background: #ffffff; }
+            section { page-break-inside: avoid; }
+            a { color: #333333; text-decoration: none; }
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: #000000;
+            color: #ffffff;
+            padding: 60px 40px;
+            text-align: center;
+            border-bottom: 3px solid #333333;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .header-subtitle {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .header-meta {
+            font-size: 0.85rem;
+            color: #999999;
+            margin-top: 12px;
+        }
+
+        /* ── CONTAINER ── */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* ── SECTION ── */
+        section {
+            margin-bottom: 50px;
+        }
+
+        /* ── SECTION TITLE ── */
+        h2 {
+            background: #333333;
+            color: #ffffff;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            border-left: 4px solid #000000;
+        }
+
+        /* ── SUBSECTION ── */
+        h3 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin: 25px 0 15px 0;
+            padding: 8px 12px 12px 12px;
+            border-bottom: 1px solid #cccccc;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 2px;
+        }
+
+        /* ── PARAGRAPH ── */
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.55);
+            padding: 8px 12px;
+            border-radius: 2px;
+        }
+
+        /* ── TABLES ── */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        table th {
+            background: rgba(85, 85, 85, 0.75);
+            color: #ffffff;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #333333;
+        }
+
+        table td {
+            padding: 11px 12px;
+            border: 1px solid #dddddd;
+            vertical-align: top;
+            background: #ffffff;
+        }
+
+        table tr:nth-child(even) td {
+            background: #f5f5f5;
+        }
+
+        table tr:hover td {
+            background: #f0f0f0;
+        }
+
+        /* ── LISTS ── */
+        ul, ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.55);
+            padding: 12px 20px;
+            border-radius: 2px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        /* ── GRID ── */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .grid-2 > div {
+            padding: 15px;
+            background: #f5f5f5;
+            border: 1px solid #dddddd;
+        }
+
+        /* ── INFO BOX ── */
+        .info-box {
+            background: #f5f5f5;
+            padding: 20px;
+            border-left: 4px solid #333333;
+            margin: 20px 0;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* ── LEGAL NOTE ── */
+        .legal-note {
+            background: #ffffcc;
+            padding: 20px;
+            border: 1px solid #e6e6b3;
+            border-radius: 2px;
+            font-size: 0.85rem;
+            margin: 30px 0;
+        }
+
+        .legal-note p {
+            margin: 8px 0;
+        }
+
+        /* ── CONTACT STRIP ── */
+        .contact-info {
+            background: #f5f5f5;
+            padding: 25px;
+            border-top: 2px solid #333333;
+            border-bottom: 2px solid #333333;
+            margin: 30px 0;
+        }
+
+        .contact-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .contact-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-item {
+            font-size: 0.9rem;
+        }
+
+        .contact-label {
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 3px;
+        }
+
+        .contact-value {
+            color: #666666;
+        }
+
+        .contact-value a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .contact-value a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #000000;
+            color: #ffffff;
+            padding: 30px 40px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            border-top: 3px solid #333333;
+        }
+
+        footer p {
+            margin: 6px 0;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .container { padding: 20px; }
+            .grid-2 { grid-template-columns: 1fr; }
+            .contact-row { grid-template-columns: 1fr; }
+            table { font-size: 0.85rem; }
+            table th, table td { padding: 8px; }
+        }
+
+        /* ── CODE/TECHNICAL ── */
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        em {
+            font-style: italic;
+        }
+
+        h4 {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 8px 12px;
+            border-radius: 2px;
+            border-left: 3px solid #333333;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<header>
+    <div style="margin-bottom: 20px;">
+        <img src="LOGO NPD.png" alt="No Project Disco" style="height: 90px; max-width: 100%; object-fit: contain;">
+    </div>
+    <h1>No Project Disco</h1>
+    <div class="header-subtitle">Rider Técnico — Trio</div>
+    <div class="header-meta">Versión 1.0 • Mayo 2026 • Contacto: noprojectdisco@gmail.com</div>
+</header>
+
+<div class="container">
+
+    <!-- ══════════ INFORMACIÓN GENERAL ══════════ -->
+    <section>
+        <h2>INFORMACIÓN GENERAL</h2>
+        <table>
+            <tr>
+                <th>Aspecto</th>
+                <th>Detalle</th>
+            </tr>
+            <tr>
+                <td><strong>Acto</strong></td>
+                <td>No Project Disco</td>
+            </tr>
+            <tr>
+                <td><strong>Género</strong></td>
+                <td>Electro Pop · Funk · Disco</td>
+            </tr>
+            <tr>
+                <td><strong>Formato</strong></td>
+                <td>Trio (3 músicos: Frontman, Productor, Synth/Bajo) + Batería Electrónica</td>
+            </tr>
+            <tr>
+                <td><strong>Duración de Set</strong></td>
+                <td>45 – 75 minutos</td>
+            </tr>
+            <tr>
+                <td><strong>Load-in (Llegada)</strong></td>
+                <td>Mínimo 2.5 horas antes del show</td>
+            </tr>
+            <tr>
+                <td><strong>Sound Check</strong></td>
+                <td>Mínimo 60 minutos</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- ══════════ INTEGRANTES ══════════ -->
+    <section>
+        <h2>INTEGRANTES</h2>
+        <table>
+            <tr>
+                <th>Rol</th>
+                <th>Nombre</th>
+                <th>Instrumento</th>
+            </tr>
+            <tr>
+                <td><strong>Frontman</strong></td>
+                <td>Erick Castillo</td>
+                <td>Voz Principal</td>
+            </tr>
+            <tr>
+                <td><strong>Productor</strong></td>
+                <td>Alejandro Guerrero</td>
+                <td>Synth · Controlador · Guitarra</td>
+            </tr>
+            <tr>
+                <td><strong>Músico</strong></td>
+                <td>Alberto Delgado</td>
+                <td>Synth · Bajo</td>
+            </tr>
+            <tr>
+                <td><strong>Ingeniero de Audio</strong></td>
+                <td>Rafael Ramírez</td>
+                <td>Técnico en Vivo</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- ══════════ STAGE PLOT ══════════ -->
+    <section>
+        <h2>STAGE PLOT</h2>
+
+        <h3>Disposición del Escenario</h3>
+        <div style="background: #ffffff; border: 2px solid #333333; padding: 40px; margin-bottom: 30px; border-radius: 2px;">
+            <!-- STAGE VISUAL -->
+            <div style="background: linear-gradient(to bottom, #e8e8e8 0%, #f5f5f5 100%); border: 2px solid #333333; padding: 30px; position: relative; min-height: 300px; margin-bottom: 20px;">
+
+                <!-- STAGE LABEL -->
+                <div style="text-align: center; margin-bottom: 30px; font-weight: bold; color: #333333; font-size: 0.95rem; letter-spacing: 1px;">ESCENARIO</div>
+
+                <!-- TOP ROW: EQUIPMENT -->
+                <div style="display: flex; justify-content: space-between; margin-bottom: 40px; align-items: flex-start;">
+                    <!-- Equipment Station Left -->
+                    <div style="flex: 1; text-align: center;">
+                        <div style="background: #555555; color: #ffffff; padding: 15px 12px; font-size: 0.85rem; font-weight: bold; border: 1px solid #333333; display: inline-block; min-width: 120px;">
+                            EQUIPO<br>(Racks + Laptops)
+                        </div>
+                        <div style="font-size: 0.8rem; color: #666666; margin-top: 8px;">Cerca de<br>Alejandro</div>
+                    </div>
+                    <!-- Spacer -->
+                    <div style="flex: 2;"></div>
+                    <!-- IEM Antenna -->
+                    <div style="flex: 1; text-align: center;">
+                        <div style="background: #666666; color: #ffffff; padding: 12px; font-size: 0.85rem; font-weight: bold; border: 1px solid #333333; display: inline-block; min-width: 100px;">
+                            📡 Antena<br>IEM RX
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MIDDLE ROW: MUSICIANS -->
+                <div style="display: flex; justify-content: space-around; margin-bottom: 20px; align-items: center;">
+
+                    <!-- SL: Alejandro or Alberto -->
+                    <div style="text-align: center; flex: 1;">
+                        <div style="background: #0066cc; color: #ffffff; padding: 20px 15px; font-size: 0.9rem; font-weight: bold; border: 2px solid #333333; display: inline-block; min-width: 110px; margin-bottom: 12px;">
+                            🎸 / 🎹<br>SL
+                        </div>
+                        <div style="font-size: 0.8rem; color: #333333; margin-top: 6px;">Alejandro<br>ó<br>Alberto</div>
+                        <div style="font-size: 0.75rem; color: #666666; margin-top: 6px;">(Intercambiable)</div>
+                    </div>
+
+                    <!-- CENTER: Erick -->
+                    <div style="text-align: center; flex: 1;">
+                        <div style="background: #cc0000; color: #ffffff; padding: 25px 20px; font-size: 1rem; font-weight: bold; border: 3px solid #333333; display: inline-block; min-width: 130px; margin-bottom: 12px;">
+                            🎤<br>ERICK<br>(Frontman)
+                        </div>
+                        <div style="font-size: 0.8rem; color: #333333; margin-top: 6px;">Centro</div>
+                    </div>
+
+                    <!-- SR: Alberto or Alejandro -->
+                    <div style="text-align: center; flex: 1;">
+                        <div style="background: #0066cc; color: #ffffff; padding: 20px 15px; font-size: 0.9rem; font-weight: bold; border: 2px solid #333333; display: inline-block; min-width: 110px; margin-bottom: 12px;">
+                            🎸 / 🎹<br>SR
+                        </div>
+                        <div style="font-size: 0.8rem; color: #333333; margin-top: 6px;">Alejandro<br>ó<br>Alberto</div>
+                        <div style="font-size: 0.75rem; color: #666666; margin-top: 6px;">(Intercambiable)</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- LEGEND -->
+            <div style="background: #f9f9f9; padding: 15px; border: 1px solid #dddddd; margin-bottom: 20px; font-size: 0.9rem;">
+                <strong style="color: #333333;">LEYENDA:</strong>
+                <ul style="margin-top: 10px; margin-bottom: 0;">
+                    <li><strong style="color: #cc0000;">Rojo:</strong> Frontman (Erick) — posición prominente, centro</li>
+                    <li><strong style="color: #0066cc;">Azul:</strong> Músicos (Alejandro / Alberto) — posiciones intercambiables SL/SR</li>
+                    <li><strong style="color: #555555;">Equipo:</strong> Racks 10U + Laptops + Interfaz — ubicación operativa</li>
+                </ul>
+            </div>
+
+            <!-- POSITIONING INFO -->
+            <div style="background: #f5f5f5; padding: 15px; border-left: 4px solid #333333;">
+                <strong style="color: #333333;">ESPECIFICACIONES DE POSICIÓN:</strong>
+                <ul style="margin-top: 10px; margin-bottom: 0; font-size: 0.9rem;">
+                    <li><strong>Escenario mínimo:</strong> 4m de ancho × 2.5m de profundidad (aproximado)</li>
+                    <li><strong>Estación de equipo:</strong> Lado SL o SR (flexible), acceso directo para control en vivo</li>
+                    <li><strong>Multicore/Snake:</strong> Escenario → FOH (mínimo 12 canales)</li>
+                    <li><strong>Receptor IEM:</strong> Posición con línea de vista a todos los bodypacks</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3>Especificaciones</h3>
+        <table>
+            <tr>
+                <th>Elemento</th>
+                <th>Posición</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td><strong>Erick (Frontman)</strong></td>
+                <td>Centro</td>
+                <td>Voz principal, posición prominente. Receptor IEM individual</td>
+            </tr>
+            <tr>
+                <td><strong>Alejandro (Productor)</strong></td>
+                <td>SL o SR (intercambiable)</td>
+                <td>Guitarra + Bass (pedalera), controlador KeyLab 49. Receptor IEM individual</td>
+            </tr>
+            <tr>
+                <td><strong>Alberto (Synth/Bajo)</strong></td>
+                <td>SR o SL (intercambiable)</td>
+                <td>Synth + Bajo, controlador KeyLab 61. Receptor IEM individual</td>
+            </tr>
+            <tr>
+                <td><strong>Estación de Equipo</strong></td>
+                <td>SL o SR (cerca de Alejandro)</td>
+                <td>Rack 10U + Rack 2U + Laptops + Scarlett. Acceso directo para control en vivo</td>
+            </tr>
+            <tr>
+                <td><strong>Receptor IEM</strong></td>
+                <td>Escenario (ubicación flexible)</td>
+                <td>Antena receptora con línea de vista a todos los bodypacks</td>
+            </tr>
+            <tr>
+                <td><strong>Cables</strong></td>
+                <td>Escenario → FOH</td>
+                <td>Multicore/snake XLR (mínimo 12 canales)</td>
+            </tr>
+            <tr>
+                <td><strong>FOH</strong></td>
+                <td>Frente del escenario</td>
+                <td>Triángulo equilátero con PA speakers L-R</td>
+            </tr>
+        </table>
+
+        <h3>Sistema de Monitoreo IEM</h3>
+        <table>
+            <tr>
+                <th>Bodypack</th>
+                <th>Músico</th>
+                <th>Mix Principal</th>
+            </tr>
+            <tr>
+                <td><strong>1</strong></td>
+                <td>Erick (Frontman)</td>
+                <td>Voz propia + backing track + batería (samples)</td>
+            </tr>
+            <tr>
+                <td><strong>2</strong></td>
+                <td>Alejandro (Productor)</td>
+                <td>Voz Erick + click + backing track + synths</td>
+            </tr>
+            <tr>
+                <td><strong>3</strong></td>
+                <td>Alberto (Synth/Bajo)</td>
+                <td>Voz Erick + backing track + batería (samples)</td>
+            </tr>
+        </table>
+
+        <h3>Notas Técnicas</h3>
+        <ul>
+            <li><strong>Intercambio de posiciones:</strong> Alejandro y Alberto pueden intercambiar SL/SR según la canción. Las conexiones deben permitir esta flexibilidad.</li>
+            <li><strong>Estación de equipo:</strong> Ubicada idealmente cerca de Alejandro para control en vivo de Ableton y MainStage.</li>
+            <li><strong>Multicore/snake:</strong> Debe llegar desde escenario a consola FOH con suficiente longitud.</li>
+            <li><strong>Línea de vista IEM:</strong> Antena receptora debe tener visibilidad directa a todos los bodypacks.</li>
+            <li><strong>Cables de stage:</strong> Minimizar cables visibles. Preferentemente pasar por atrás/debajo.</li>
+        </ul>
+    </section>
+
+    <!-- ══════════ INPUT LIST ══════════ -->
+    <section>
+        <h2>INPUT LIST — 12 CANALES</h2>
+        <p>Para <strong>Allen & Heath CQ20B</strong> o consola digital equivalente mínimo 24 canales.</p>
+
+        <h3>Sección 1: Batería Electrónica (2 canales)</h3>
+        <table>
+            <tr>
+                <th>CH</th>
+                <th>Instrumento</th>
+                <th>Tipo</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td><strong>1</strong></td>
+                <td>Batería Electrónica L</td>
+                <td>DI</td>
+                <td>Samples y secuencias de batería desde Ableton - canal izquierdo</td>
+            </tr>
+            <tr>
+                <td><strong>2</strong></td>
+                <td>Batería Electrónica R</td>
+                <td>DI</td>
+                <td>Samples y secuencias de batería desde Ableton - canal derecho</td>
+            </tr>
+        </table>
+
+        <h3>Sección 2: MainStage (2 canales)</h3>
+        <table>
+            <tr>
+                <th>CH</th>
+                <th>Instrumento</th>
+                <th>Tipo</th>
+                <th>Conexión</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td><strong>3</strong></td>
+                <td>MainStage L</td>
+                <td>DI</td>
+                <td>Scarlett / Erick</td>
+                <td>Software MainStage (Arturia controllers) - canal izquierdo</td>
+            </tr>
+            <tr>
+                <td><strong>4</strong></td>
+                <td>MainStage R</td>
+                <td>DI</td>
+                <td>Scarlett / Erick</td>
+                <td>Software MainStage (Arturia controllers) - canal derecho</td>
+            </tr>
+        </table>
+
+        <h3>Sección 3: Secuencias (2 canales)</h3>
+        <table>
+            <tr>
+                <th>CH</th>
+                <th>Instrumento</th>
+                <th>Tipo</th>
+                <th>Conexión</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td><strong>5</strong></td>
+                <td>Secuencia L</td>
+                <td>DI</td>
+                <td>Ableton / Alejandro</td>
+                <td>Secuencias generales - canal izquierdo</td>
+            </tr>
+            <tr>
+                <td><strong>6</strong></td>
+                <td>Secuencia R</td>
+                <td>DI</td>
+                <td>Ableton / Alejandro</td>
+                <td>Secuencias generales - canal derecho</td>
+            </tr>
+        </table>
+
+        <h3>Sección 4: Guitarras (2 canales)</h3>
+        <table>
+            <tr>
+                <th>CH</th>
+                <th>Instrumento</th>
+                <th>Tipo</th>
+                <th>Conexión</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td><strong>7</strong></td>
+                <td>Guitarra Alejandro</td>
+                <td>DI</td>
+                <td>Pedalera (DI integrada)</td>
+                <td>Directa desde pedalera multiefectos</td>
+            </tr>
+            <tr>
+                <td><strong>8</strong></td>
+                <td>Guitarra Erick</td>
+                <td>XLR</td>
+                <td>Ampero Stage II</td>
+                <td>Salida XLR del procesador</td>
+            </tr>
+        </table>
+
+        <h3>Sección 5: Voces (2 canales)</h3>
+        <table>
+            <tr>
+                <th>CH</th>
+                <th>Instrumento</th>
+                <th>Tipo</th>
+                <th>Conexión</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td><strong>9</strong></td>
+                <td>Voz Erick - Normal</td>
+                <td>XLR</td>
+                <td>Divisor / Rack 2U</td>
+                <td>SHURE SLXD inalámbrico (Rafa) - sin procesamiento</td>
+            </tr>
+            <tr>
+                <td><strong>10</strong></td>
+                <td>Voz Erick - Comprimida</td>
+                <td>XLR</td>
+                <td>Divisor / Rack 2U</td>
+                <td>Mismo micrófono con compresión paralela</td>
+            </tr>
+        </table>
+
+        <h3>Sección 6: Ableton - Click (1 canal)</h3>
+        <table>
+            <tr>
+                <th>CH</th>
+                <th>Instrumento</th>
+                <th>Tipo</th>
+                <th>Conexión</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td><strong>11</strong></td>
+                <td>Click</td>
+                <td>DI</td>
+                <td>Ableton / Alejandro</td>
+                <td>Sincronización (monitor Erick primariamente)</td>
+            </tr>
+        </table>
+
+        <h3>Sección 7: Bajo (1 canal)</h3>
+        <table>
+            <tr>
+                <th>CH</th>
+                <th>Instrumento</th>
+                <th>Tipo</th>
+                <th>Conexión</th>
+            </tr>
+            <tr>
+                <td><strong>12</strong></td>
+                <td>Bajo</td>
+                <td>XLR</td>
+                <td>Directa</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- ══════════ REQUERIMIENTOS DE SONIDO ══════════ -->
+    <section>
+        <h2>REQUERIMIENTOS DE SONIDO</h2>
+
+        <h3>Consola FOH (Front of House)</h3>
+        <p><strong>Consola Digital requerida</strong> — mínimo 24 canales de entrada.</p>
+        <p><strong>Consolas preferidas:</strong> Yamaha CL5, DiGiCo SD7, Midas M32, Allen & Heath dLive</p>
+        <ul>
+            <li>Posicionada de frente al escenario, formando triángulo equilátero con altavoces PA principales (L-R)</li>
+            <li>2 tomas corriente 110V estables cercanas a la consola</li>
+            <li>Manipulación inalámbrica si la consola no puede estar al frente del escenario</li>
+            <li>Lámpara pequeña para iluminar consola en recintos oscuros</li>
+        </ul>
+
+        <h3>Sistema PA (Front of House)</h3>
+        <ul>
+            <li><strong>Generar mínimo 110 dB SPL</strong> en posición de consola</li>
+            <li><strong>Respuesta de frecuencia:</strong> 20 Hz – 20 kHz</li>
+            <li><strong>Sistema proporcional al aforo:</strong> 2 sistemas por lado recomendado para 300+ personas</li>
+            <li><strong>Subwoofers activos requeridos</strong> (género Electro-Funk-Disco)</li>
+            <li><strong>Sistemas preferidos:</strong> D&B, L-Acoustics, QSC, Turbosound, EAW</li>
+        </ul>
+
+        <h3>Sistema de Monitoreo (In-Ear)</h3>
+        <p><strong>Requerimiento principal:</strong> Sistema IEM profesional con 3 mixes independientes.</p>
+        <ul>
+            <li><strong>Sistemas preferidos:</strong> Shure PSM 1000, Sennheiser IEM G4</li>
+            <li><strong>3 mixes independientes:</strong> Erick (Frontman), Alejandro, Alberto</li>
+            <li><strong>Nota:</strong> La banda trae sistema Xtuga como backup</li>
+        </ul>
+        <p><em>Monitores de piso: solo como último backup si no hay IEM disponible.</em></p>
+
+        <h3>Equipo Eléctrico en Escenario</h3>
+        <ul>
+            <li><strong>4 circuitos de 110V / 15A</strong> independientes (tomas limpias)</li>
+            <li>Sin compartir circuito con iluminación ni maquinaria</li>
+            <li><strong>Tierra física en todos (obligatorio)</strong></li>
+            <li><strong>UPS recomendado</strong> para laptops + equipo digital</li>
+            <li>Cable multicore/snake XLR escenario → FOH (mínimo 12 canales)</li>
+            <li>2 tomas adicionales para rack 2U (SHURE SLXD)</li>
+        </ul>
+
+        <h3>Prueba de Sonido</h3>
+        <ul>
+            <li><strong>Mínimo 60 minutos</strong></li>
+            <li>Incluye: Line check, setup backing tracks Ableton, click sync, prueba de splitting voz Erick</li>
+        </ul>
+    </section>
+
+    <!-- ══════════ BACKLINE ══════════ -->
+    <section>
+        <h2>BACKLINE</h2>
+
+        <h3>La Banda Lleva:</h3>
+
+        <h4 style="font-size: 0.95rem; margin-top: 15px; margin-bottom: 10px; color: #333;"><strong>Alejandro Guerrero — Productor / Guitarra / Bajo</strong></h4>
+        <table>
+            <tr>
+                <th>Categoría</th>
+                <th>Equipo</th>
+                <th>Specs / Notas</th>
+            </tr>
+            <tr>
+                <td>Laptop</td>
+                <td>MacBook Air M1</td>
+                <td>Ableton Live + secuencias + backing tracks</td>
+            </tr>
+            <tr>
+                <td>Guitarra</td>
+                <td>Fender Deluxe Nashville Power Tele</td>
+                <td>No. serie: MN8127410</td>
+            </tr>
+            <tr>
+                <td>Guitarra</td>
+                <td>Squier Jaguar Vintage Modified</td>
+                <td>No. serie: ICS16118295</td>
+            </tr>
+            <tr>
+                <td>Procesamiento Guitarra</td>
+                <td>Boss WL60 (inalámbrico)</td>
+                <td>Sistema inalámbrico de guitarra</td>
+            </tr>
+            <tr>
+                <td>Procesamiento Guitarra</td>
+                <td>Ampero Mini</td>
+                <td>Procesador de guitarra</td>
+            </tr>
+            <tr>
+                <td>DI Guitarra</td>
+                <td>Whirlwind IMP 2</td>
+                <td>Caja directa (XLR out)</td>
+            </tr>
+            <tr>
+                <td>Procesamiento Bajo</td>
+                <td>Polytune (tuner)</td>
+                <td>Tuner integrado</td>
+            </tr>
+            <tr>
+                <td>Procesamiento Bajo</td>
+                <td>Xotic SP Compressor</td>
+                <td>Compresor analógico</td>
+            </tr>
+            <tr>
+                <td>DI Bajo</td>
+                <td>Sansamp Bass Driver DI v1</td>
+                <td>DI + preamp (XLR out)</td>
+            </tr>
+            <tr>
+                <td>Controlador Teclado</td>
+                <td>Arturia KeyLab Essential 49 MKII</td>
+                <td>MIDI (MainStage — Bass/Synth)</td>
+            </tr>
+        </table>
+
+        <h4 style="font-size: 0.95rem; margin-top: 15px; margin-bottom: 10px; color: #333;"><strong>Erick Castillo — Frontman / Guitarra</strong></h4>
+        <table>
+            <tr>
+                <th>Categoría</th>
+                <th>Equipo</th>
+                <th>Specs / Notas</th>
+            </tr>
+            <tr>
+                <td>Laptop</td>
+                <td>MacBook Pro M3</td>
+                <td>MainStage + synth Arturia</td>
+            </tr>
+            <tr>
+                <td>Guitarra</td>
+                <td>Fender Stratocaster Vintera 50's</td>
+                <td>No. serie: (pendiente confirmar)</td>
+            </tr>
+            <tr>
+                <td>Micrófono</td>
+                <td>SHURE SLXD24 + cápsula V7 (SE Electronics)</td>
+                <td>Micrófono inalámbrico profesional</td>
+            </tr>
+            <tr>
+                <td>Controlador Teclado</td>
+                <td>Arturia KeyLab Essential 61</td>
+                <td>MIDI (Keys / Leads)</td>
+            </tr>
+        </table>
+
+        <h4 style="font-size: 0.95rem; margin-top: 15px; margin-bottom: 10px; color: #333;"><strong>Equipo Compartido — Racks & Sistemas</strong></h4>
+        <table>
+            <tr>
+                <th>Categoría</th>
+                <th>Equipo</th>
+                <th>Notas</th>
+            </tr>
+            <tr>
+                <td>Rack 10U</td>
+                <td>Estación Principal</td>
+                <td>Behringer MioXL (MIDI), Caja directa Behringer 8 E/S, Acondicionador de línea Tripp Lite</td>
+            </tr>
+            <tr>
+                <td>Rack 2U</td>
+                <td>Estación Audio Inalámbrico</td>
+                <td>SHURE SLXD24 (micrófono Erick)</td>
+            </tr>
+            <tr>
+                <td>Audio Interface</td>
+                <td>Scarlett (Erick)</td>
+                <td>MainStage outputs (MainStage Synth L/R)</td>
+            </tr>
+            <tr>
+                <td>Monitoreo IEM</td>
+                <td>Sistema Xtuga</td>
+                <td>3 bodypacks + receptor (backup)</td>
+            </tr>
+            <tr>
+                <td>Cables</td>
+                <td>Cables propios</td>
+                <td>XLR, DI, 1/4", USB (respaldo)</td>
+            </tr>
+            <tr>
+                <td>Accesorios</td>
+                <td>Diversos</td>
+                <td>Pedestales mic, splitter voz, adaptadores</td>
+            </tr>
+        </table>
+
+        <h3>Venue Debe Proveer:</h3>
+        <table>
+            <tr>
+                <th>Categoría</th>
+                <th>Requerimiento</th>
+                <th>Especificación</th>
+                <th>Tipo</th>
+            </tr>
+            <tr>
+                <td>Stands</td>
+                <td>Pedestales de micrófono</td>
+                <td>Mínimo 2 adicionales (standbys)</td>
+                <td>Requerido</td>
+            </tr>
+            <tr>
+                <td>Cables</td>
+                <td>Multicore/snake</td>
+                <td>XLR escenario → FOH (mínimo 12 canales)</td>
+                <td>Requerido</td>
+            </tr>
+            <tr>
+                <td>Cables</td>
+                <td>XLR + 1/4"</td>
+                <td>Repuesto en escenario</td>
+                <td>Requerido</td>
+            </tr>
+            <tr>
+                <td>Audio</td>
+                <td>DI boxes activas</td>
+                <td>Mínimo 2 (standby)</td>
+                <td>Requerido</td>
+            </tr>
+            <tr>
+                <td>Mesas</td>
+                <td>Estación para equipos</td>
+                <td>Para rack 10U + laptops + rack 2U (área segura, conexión eléctrica cerca)</td>
+                <td>Requerido</td>
+            </tr>
+            <tr>
+                <td>Electricidad</td>
+                <td>Circuitos 110V</td>
+                <td>4 circuitos x 15A (tomas limpias, tierra física)</td>
+                <td>Requerido</td>
+            </tr>
+            <tr>
+                <td>Electricidad</td>
+                <td>Tomas adicionales</td>
+                <td>2 tomas para rack 2U (SHURE)</td>
+                <td>Requerido</td>
+            </tr>
+            <tr>
+                <td>Iluminación</td>
+                <td>Luz consola FOH</td>
+                <td>Lámpara pequeña si recinto oscuro</td>
+                <td>Requerido</td>
+            </tr>
+            <tr>
+                <td>Monitoreo</td>
+                <td>Monitores wedge de piso</td>
+                <td>2-3 wedges 12" con tweeter</td>
+                <td><strong>SOLO SI NO HAY IEM RIG</strong> (backup)</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- ══════════ HOSPITALIDAD ══════════ -->
+    <section>
+        <h2>HOSPITALIDAD & CAMERINO</h2>
+
+        <h3>Camerino</h3>
+        <ul>
+            <li>Camerino privado para <strong>mínimo 4 personas</strong> (3 músicos + Rafa)</li>
+            <li><strong>Llave o acceso controlado</strong> — seguridad del equipo</li>
+            <li>Espejo de cuerpo entero + buena iluminación</li>
+            <li>Acceso a baño cercano o privado</li>
+            <li><strong>2 mesas + 4 sillas</strong> (cómodas)</li>
+            <li>Área para guardar equipo de forma segura</li>
+            <li>Conexión eléctrica para cargar laptops/bodypacks IEM</li>
+            <li><strong>WiFi funcional</strong> (control de backing tracks en vivo)</li>
+            <li>Temperatura controlada (aire acondicionado si es posible)</li>
+        </ul>
+
+        <h3>Catering — Soundcheck</h3>
+        <table>
+            <tr>
+                <th>Bebidas</th>
+                <th>Cantidad</th>
+            </tr>
+            <tr>
+                <td>Agua natural</td>
+                <td>12 botellas (600ml)</td>
+            </tr>
+            <tr>
+                <td>Monster Blanco</td>
+                <td>3 botellas</td>
+            </tr>
+            <tr>
+                <td>Vive 100</td>
+                <td>3 botellas</td>
+            </tr>
+            <tr>
+                <td>Estación de Té/Café</td>
+                <td>1</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>Alimentos</th>
+                <th>Cantidad</th>
+            </tr>
+            <tr>
+                <td>Fruta fresca</td>
+                <td>Variada</td>
+            </tr>
+            <tr>
+                <td>Botanas ligeras</td>
+                <td>Galletas, snacks salados</td>
+            </tr>
+            <tr>
+                <td>Agua con hielo</td>
+                <td>Disponible</td>
+            </tr>
+        </table>
+
+        <h3>Catering — Pre-Show (30 minutos antes)</h3>
+        <table>
+            <tr>
+                <th>Bebidas</th>
+                <th>Cantidad</th>
+            </tr>
+            <tr>
+                <td>Agua natural fría</td>
+                <td>10 botellas</td>
+            </tr>
+            <tr>
+                <td>Monster Blanco</td>
+                <td>1 botella</td>
+            </tr>
+            <tr>
+                <td>Vive 100</td>
+                <td>1 botella</td>
+            </tr>
+            <tr>
+                <td>Bebidas a elegir</td>
+                <td>4-6 (cerveza, refresco, etc.)</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>Alimentos</th>
+                <th>Cantidad</th>
+            </tr>
+            <tr>
+                <td>Fruta fresca</td>
+                <td>Variada (plátano, naranja, manzana)</td>
+            </tr>
+            <tr>
+                <td>Snacks energéticos</td>
+                <td>Barras de granola, frutos secos</td>
+            </tr>
+            <tr>
+                <td>Toallas limpias</td>
+                <td>4 (color negro preferible)</td>
+            </tr>
+        </table>
+
+        <h3>Catering — Post-Show (Durante el show)</h3>
+        <table>
+            <tr>
+                <th>Bebidas</th>
+                <th>Cantidad</th>
+            </tr>
+            <tr>
+                <td>Cerveza / bebida alcohólica</td>
+                <td>6-12 unidades</td>
+            </tr>
+            <tr>
+                <td>Agua natural</td>
+                <td>12 botellas en escenario</td>
+            </tr>
+            <tr>
+                <td>Bebidas variadas</td>
+                <td>Refrescos, jugo</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>Alimentos</th>
+                <th>Cantidad</th>
+            </tr>
+            <tr>
+                <td>Comida ligera/completa</td>
+                <td>4 porciones (a convenir con producción)</td>
+            </tr>
+            <tr>
+                <td>Pizza o equivalente</td>
+                <td>2 pizzas</td>
+            </tr>
+            <tr>
+                <td>Snacks y botanas</td>
+                <td>Variados</td>
+            </tr>
+        </table>
+
+        <h3>Accesorios & Extras</h3>
+        <ul>
+            <li>1 espejo de cuerpo entero (camerino)</li>
+            <li>Jabón, toallas de papel, papel higiénico</li>
+            <li>Papel higiénico en escenario</li>
+            <li>Estacionamiento y acceso vehicular cercano al escenario/camerino</li>
+            <li>Área de carga/descarga segura para equipo</li>
+        </ul>
+    </section>
+
+    <!-- ══════════ CONTACTOS ══════════ -->
+    <section>
+        <h2>CONTACTOS TÉCNICOS</h2>
+
+        <h3>Responsables Principales</h3>
+        <table>
+            <tr>
+                <th>Rol</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+            </tr>
+            <tr>
+                <td><strong>Frontman / Voz</strong></td>
+                <td>Erick Castillo</td>
+                <td>+52 312 595 1106</td>
+            </tr>
+            <tr>
+                <td><strong>Productor / Synth</strong></td>
+                <td>Alejandro Guerrero</td>
+                <td>+52 312 132 4734</td>
+            </tr>
+            <tr>
+                <td><strong>Synth / Bajo</strong></td>
+                <td>Alberto Delgado</td>
+                <td>+52 312 943 2858</td>
+            </tr>
+            <tr>
+                <td><strong>Ingeniero de Audio</strong></td>
+                <td>Rafael Ramírez</td>
+                <td>+52 312 105 8955</td>
+            </tr>
+        </table>
+
+        <h3>Contacto General (Booking)</h3>
+        <table>
+            <tr>
+                <th>Información</th>
+                <th>Dato</th>
+            </tr>
+            <tr>
+                <td><strong>Email General</strong></td>
+                <td>noprojectdisco@gmail.com</td>
+            </tr>
+            <tr>
+                <td><strong>WhatsApp Directo</strong></td>
+                <td>+52 312 595 1106 (Erick)</td>
+            </tr>
+            <tr>
+                <td><strong>Responsable Técnico</strong></td>
+                <td>Alejandro Guerrero</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- ══════════ LEGAL ══════════ -->
+    <section>
+        <h2>DISCLAIMER LEGAL</h2>
+
+        <div class="legal-note">
+            <p>
+                <strong>ESTE RIDER TÉCNICO ES UNA GUÍA MÍNIMA DE REQUERIMIENTOS</strong> para garantizar
+                la calidad técnica y profesional del show de No Project Disco.
+            </p>
+            <p style="margin-top: 12px;">
+                Cualquier modificación, excepción o cambio en los requerimientos debe ser acordado por escrito
+                con el responsable técnico de la banda <strong>CON AL MENOS 72 HORAS DE ANTICIPACIÓN.</strong>
+            </p>
+            <p style="margin-top: 12px;">
+                <strong>El incumplimiento de los requerimientos marcados como REQUERIDO</strong> puede resultar
+                en la <strong>CANCELACIÓN DEL SHOW SIN RESPONSABILIDAD PARA LA BANDA.</strong>
+            </p>
+            <p style="margin-top: 12px;">
+                <strong>ANTES DEL SHOW, la banda debe:</strong>
+            </p>
+            <ul>
+                <li>Realizar prueba de sonido de mínimo 60 minutos</li>
+                <li>Confirmar funcionamiento de backing tracks (Ableton)</li>
+                <li>Verificar sincronización de click y MainStage</li>
+                <li>Probar todos los sistemas IEM</li>
+            </ul>
+            <p style="margin-top: 12px;">
+                <strong>En caso de dudas o incompatibilidades técnicas,</strong> contactar inmediatamente
+                al responsable técnico (Alejandro Guerrero).
+            </p>
+        </div>
+    </section>
+
+    <!-- ══════════ INFO DOCUMENTO ══════════ -->
+    <section>
+        <h2>INFORMACIÓN DEL DOCUMENTO</h2>
+        <table>
+            <tr>
+                <th>Aspecto</th>
+                <th>Dato</th>
+            </tr>
+            <tr>
+                <td><strong>Nombre del Acto</strong></td>
+                <td>No Project Disco</td>
+            </tr>
+            <tr>
+                <td><strong>Formato</strong></td>
+                <td>Trio (3 músicos) + Batería Electrónica</td>
+            </tr>
+            <tr>
+                <td><strong>Versión</strong></td>
+                <td>1.0</td>
+            </tr>
+            <tr>
+                <td><strong>Válido desde</strong></td>
+                <td>Mayo 2026</td>
+            </tr>
+            <tr>
+                <td><strong>Próxima revisión</strong></td>
+                <td>Agosto 2026</td>
+            </tr>
+            <tr>
+                <td><strong>Idioma</strong></td>
+                <td>Español</td>
+            </tr>
+        </table>
+    </section>
+
+</div><!-- /container -->
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+    <p>&copy; 2026 No Project Disco</p>
+    <p>Rider Técnico Oficial • Trio + Batería Electrónica • Producción Independiente • Colima, México</p>
+</footer>
+
+</body>
+</html>
