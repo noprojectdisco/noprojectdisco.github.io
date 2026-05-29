@@ -2131,6 +2131,18 @@
                 scrollTopBtn.classList.remove('visible');
             }
         });
+
+        // Control videos - pause other videos when one plays
+        const momentVideos = document.querySelectorAll('.moment-video video');
+        momentVideos.forEach(video => {
+            video.addEventListener('play', () => {
+                momentVideos.forEach(otherVideo => {
+                    if (otherVideo !== video) {
+                        otherVideo.pause();
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
