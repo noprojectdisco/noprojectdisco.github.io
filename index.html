@@ -1,0 +1,2136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>No Project Disco - Press Kit 2026</title>
+    <style>
+
+        :root {
+            --gold: #e0e0e0;
+            --gold-light: #ffffff;
+            --red: #00d4ff;
+            --red-bright: #00ffff;
+            --cream: #f5f5f5;
+            --cream-dim: #b0b0b0;
+            --bg: #0a0a0a;
+            --bg-mid: #0f0f0f;
+            --bg-card: rgba(15, 15, 15, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ANIMATED BACKGROUND con scanlines NGE */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #0a0a0a 0%, #0f0b08 50%, #0a0a0a 100%);
+            z-index: -1;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 15% 25%, rgba(139, 26, 26, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 75%, rgba(196, 146, 42, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(139, 26, 26, 0.03) 0%, transparent 70%);
+            animation: shift 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 0, 0, 0.15) 2px,
+                rgba(0, 0, 0, 0.15) 4px
+            );
+            pointer-events: none;
+        }
+
+        @keyframes shift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* HERO / COVER */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-container {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s ease-in-out infinite;
+            position: relative;
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            inset: -40px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.15), transparent 50%);
+            animation: sparkleAura 2.5s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            inset: -60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 70% 70%, rgba(0, 255, 255, 0.08), transparent 60%);
+            animation: sparkleAura2 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 30px rgba(196, 146, 42, 0.5)) drop-shadow(0 0 60px rgba(139, 26, 26, 0.3));
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        @keyframes sparkleAura {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes sparkleAura2 {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(0.9);
+            }
+        }
+
+        .hero h1 {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: var(--cream);
+            letter-spacing: 4px;
+            line-height: 1.2;
+            text-shadow:
+                0 0 40px rgba(196, 146, 42, 0.4),
+                0 0 80px rgba(139, 26, 26, 0.2),
+                0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-subtitle {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .hero-year {
+            font-size: 0.85rem;
+            color: var(--cream-dim);
+            letter-spacing: 3px;
+            font-family: Helvetica, Arial, sans-serif;
+            opacity: 0.7;
+        }
+
+        /* STICKY NAVBAR */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(8, 5, 3, 0.97);
+            backdrop-filter: blur(20px);
+            padding: 18px 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(196, 146, 42, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 1px 0 rgba(196, 146, 42, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            padding: 0 40px;
+        }
+
+        .navbar a {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--cream-dim);
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--gold-light);
+            text-shadow: 0 0 12px rgba(196, 146, 42, 0.5);
+        }
+
+        .navbar a:hover::after {
+            width: 100%;
+        }
+
+        /* SECTIONS */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 60px;
+            scroll-margin-top: 80px;
+            position: relative;
+        }
+
+        @media (min-width: 1400px) {
+            section {
+                padding: 120px 80px;
+            }
+        }
+
+        section h2 {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 60px;
+            font-weight: 700;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            color: var(--cream);
+            text-shadow: 0 0 30px rgba(196, 146, 42, 0.25), 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        section h2::before {
+            content: '⸻';
+            display: block;
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 4px;
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            height: 1px;
+            width: 120px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+        }
+
+        /* ABOUT SECTION */
+        #about {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.92) 0%, rgba(10, 10, 10, 0.88) 50%, rgba(10, 10, 10, 0.92) 100%),
+                        url('./assets/fotos/17844626646686451.jpg') center/cover fixed;
+            background-attachment: fixed;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+            margin-top: 60px;
+            row-gap: 40px;
+        }
+
+        .about-text {
+            padding-right: 40px;
+        }
+
+        .stats-grid {
+            grid-column: 2;
+            padding-left: 40px;
+        }
+
+        @media (min-width: 1400px) {
+            .about-text {
+                padding-right: 60px;
+            }
+            .stats-grid {
+                padding-left: 60px;
+            }
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--cream-dim);
+            line-height: 1.9;
+            font-weight: 300;
+            font-family: Helvetica, Arial, sans-serif;
+            text-align: justify;
+            text-align-last: left;
+        }
+
+        .about-text strong {
+            color: var(--gold-light);
+            font-weight: 600;
+            text-shadow: 0 0 12px rgba(196, 146, 42, 0.4);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            border-top: 1px solid rgba(196, 146, 42, 0.4);
+            padding: 30px;
+            border-radius: 2px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: linear-gradient(180deg, var(--gold), transparent);
+        }
+
+        .stat-card:hover {
+            border-color: rgba(196, 146, 42, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(139, 26, 26, 0.2), 0 0 20px rgba(196, 146, 42, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 8px;
+            font-family: Helvetica, Arial, sans-serif;
+            text-shadow: 0 0 20px rgba(196, 146, 42, 0.3);
+        }
+
+        .stat-label {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.7rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            font-weight: 400;
+        }
+
+        /* ALBUM SECTION */
+        #album {
+            position: relative;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .album-bg-video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%;
+            height: 60%;
+            object-fit: contain;
+            opacity: 0.15;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        #album h2,
+        #album .album-content-grid,
+        #album .tracklist-box {
+            position: relative;
+            z-index: 2;
+        }
+
+        .album-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        .album-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .album-full-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .album-full-layout .album-image {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .album-full-layout .album-text {
+            grid-column: 2;
+            grid-row: 1;
+            margin-top: 0;
+            max-width: 100%;
+        }
+
+        .album-full-layout .album-text-bottom {
+            grid-column: 1;
+            grid-row: 2;
+            margin-top: 0;
+            max-width: 100%;
+        }
+
+        .album-full-layout .album-contra-portada-inline {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .album-text-bottom {
+            margin-top: 0;
+        }
+
+        .album-text-bottom p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--cream-dim);
+            line-height: 1.9;
+            font-weight: 300;
+            font-family: Helvetica, Arial, sans-serif;
+            text-align: justify;
+            text-align-last: left;
+        }
+
+        .album-text-bottom strong {
+            color: var(--gold-light);
+            font-weight: 600;
+            text-shadow: 0 0 12px rgba(196, 146, 42, 0.4);
+        }
+
+        .album-text {
+            margin-top: 0;
+            max-width: 100%;
+        }
+
+        .album-image {
+            width: 100%;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(139, 26, 26, 0.2);
+            transition: all 0.4s;
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+        }
+
+        .album-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 80px rgba(139, 26, 26, 0.3), 0 0 60px rgba(196, 146, 42, 0.15);
+            border-color: rgba(196, 146, 42, 0.4);
+        }
+
+        .album-image img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .album-text p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--cream-dim);
+            line-height: 1.9;
+            font-weight: 300;
+            font-family: Helvetica, Arial, sans-serif;
+            text-align: justify;
+            text-align-last: left;
+        }
+
+        .album-text strong {
+            color: var(--gold-light);
+            font-weight: 600;
+            text-shadow: 0 0 12px rgba(196, 146, 42, 0.4);
+        }
+
+        .album-covers {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .album-contra-portada-inline {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(139, 26, 26, 0.2);
+            transition: all 0.4s;
+            aspect-ratio: 1 / 1;
+        }
+
+        .album-contra-portada-inline img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .album-contra-portada-inline:hover {
+            box-shadow: 0 30px 80px rgba(139, 26, 26, 0.3), 0 0 60px rgba(196, 146, 42, 0.15);
+            transform: scale(1.02);
+        }
+
+        .album-contra-portada {
+            max-width: 450px;
+            margin: 0 auto;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(139, 26, 26, 0.2);
+            transition: all 0.4s;
+        }
+
+        .album-contra-portada img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 2px;
+        }
+
+        .album-contra-portada:hover {
+            box-shadow: 0 30px 80px rgba(139, 26, 26, 0.3), 0 0 60px rgba(196, 146, 42, 0.15);
+            transform: scale(1.02);
+        }
+
+        .tracklist-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            border-radius: 2px;
+            padding: 25px 30px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            margin: 0 auto;
+            max-width: 450px;
+        }
+
+        .tracklist-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .tracklist-box h3 {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--gold-light);
+            margin-bottom: 18px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .track-item {
+            display: flex;
+            align-items: center;
+            padding: 9px 0;
+            border-bottom: 1px solid rgba(196, 146, 42, 0.1);
+            transition: all 0.3s;
+        }
+
+        .track-item:last-child {
+            border-bottom: none;
+        }
+
+        .track-item:hover {
+            padding-left: 8px;
+            color: var(--cream);
+        }
+
+        .track-item:hover .track-name {
+            color: var(--gold-light);
+            text-shadow: 0 0 12px rgba(196, 146, 42, 0.4);
+        }
+
+        .track-number {
+            color: var(--red-bright);
+            font-weight: 700;
+            margin-right: 18px;
+            min-width: 30px;
+            font-size: 0.8rem;
+            font-family: Helvetica, Arial, sans-serif;
+            opacity: 0.8;
+        }
+
+        .track-name {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--cream-dim);
+            font-weight: 400;
+            font-size: 0.95rem;
+            flex: 1;
+            transition: all 0.3s;
+        }
+
+        /* MEMBERS SECTION */
+        .members-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .member-card {
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+
+        .member-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .member-card:hover {
+            border-color: rgba(196, 146, 42, 0.45);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(139, 26, 26, 0.25), 0 0 30px rgba(196, 146, 42, 0.1);
+        }
+
+        .member-card:hover::after {
+            opacity: 1;
+        }
+
+        .member-image {
+            width: 100%;
+            height: 400px;
+            background: #0d0905;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+            filter: sepia(20%) contrast(1.05);
+        }
+
+        .member-card:hover .member-image img {
+            transform: scale(1.05);
+            filter: sepia(10%) contrast(1.1) brightness(1.05);
+        }
+
+        .member-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(8, 5, 3, 0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .member-card:hover .member-overlay {
+            opacity: 1;
+        }
+
+        .member-info {
+            padding: 35px 30px;
+        }
+
+        .member-name {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(196, 146, 42, 0.2);
+        }
+
+        .member-role {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--gold);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .member-skills {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--cream-dim);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+            text-align: justify;
+            text-align-last: left;
+        }
+
+        /* METRICS SECTION */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .metric-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.18);
+            border-radius: 2px;
+            padding: 40px 30px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 40px; height: 1px;
+            background: var(--gold);
+            opacity: 0.6;
+        }
+
+        .metric-box:hover {
+            border-color: rgba(196, 146, 42, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(139, 26, 26, 0.2), 0 0 20px rgba(196, 146, 42, 0.08);
+        }
+
+        .metric-label {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--gold);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .metric-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 15px;
+            font-family: Helvetica, Arial, sans-serif;
+            text-shadow: 0 0 20px rgba(196, 146, 42, 0.25);
+        }
+
+        .metric-bar {
+            width: 100%;
+            height: 2px;
+            background: rgba(196, 146, 42, 0.1);
+            overflow: hidden;
+        }
+
+        .metric-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--red-bright), var(--gold));
+            animation: fillBar 1.5s ease-out forwards;
+        }
+
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--width); }
+        }
+
+        /* AUDIO SECTION */
+        .audio-content {
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            border-radius: 2px;
+            padding: 80px 60px;
+            text-align: center;
+            margin-top: 60px;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .audio-content::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--red-bright), var(--gold), transparent);
+        }
+
+        .audio-content::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(196, 146, 42, 0.3), transparent);
+        }
+
+        .audio-description {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--cream-dim);
+            font-size: 0.95rem;
+            margin: 30px 0 50px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .spotify-embed-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .spotify-embed-container iframe {
+            border-radius: 12px;
+            max-width: 100%;
+        }
+
+        /* VIDEO SECTION */
+        .video-container {
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            border-radius: 2px;
+            padding: 60px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--red-bright), var(--gold), transparent);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 2px;
+            border: 1px solid rgba(196, 146, 42, 0.15);
+            margin-top: 40px;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-description {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--cream-dim);
+            font-size: 0.95rem;
+            margin: 30px 0 20px;
+            line-height: 1.8;
+        }
+
+        /* MOMENTS SECTION */
+        .moments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+            auto-flow: dense;
+        }
+
+        .moment-video {
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            transition: all 0.4s;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .moment-video:hover {
+            border-color: rgba(196, 146, 42, 0.4);
+            box-shadow: 0 0 30px rgba(139, 26, 26, 0.3);
+        }
+
+        .moment-video video {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: #000;
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        /* LIVE DETAILS SECTION */
+        .live-formations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .formation-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            border-radius: 2px;
+            padding: 40px;
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .formation-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--red-bright), var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .formation-card:hover {
+            border-color: rgba(196, 146, 42, 0.4);
+            box-shadow: 0 0 30px rgba(139, 26, 26, 0.3);
+        }
+
+        .formation-card:hover::before {
+            opacity: 1;
+        }
+
+        .formation-title {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .formation-detail {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.9rem;
+            color: var(--cream);
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .formation-detail strong {
+            color: var(--gold-light);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+            margin-top: 8px;
+        }
+
+        .formation-detail:first-child strong {
+            margin-top: 0;
+        }
+
+        .live-requirements {
+            margin-top: 60px;
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            border-radius: 2px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .live-requirements::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--red-bright), var(--gold), transparent);
+        }
+
+        .live-requirements h3 {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .requirements-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .requirement-item {
+            border-left: 2px solid rgba(196, 146, 42, 0.3);
+            padding-left: 20px;
+        }
+
+        .requirement-item strong {
+            color: var(--gold);
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .requirement-item p {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.9rem;
+            color: var(--cream);
+            line-height: 1.5;
+        }
+
+        /* SHOWS SECTION */
+        .shows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .show-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            border-radius: 2px;
+            padding: 0;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .show-card-image {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .show-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s;
+        }
+
+        .show-card:hover .show-card-image img {
+            transform: scale(1.05);
+        }
+
+        .show-date,
+        .show-venue,
+        .show-location,
+        .show-details,
+        .show-status,
+        .show-tickets-btn {
+            margin: 0;
+            padding: 0 30px;
+        }
+
+        .show-date {
+            padding-top: 30px;
+        }
+
+        .show-tickets-btn {
+            padding-bottom: 30px;
+        }
+
+        .show-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--red-bright), var(--gold), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .show-card:hover {
+            border-color: rgba(196, 146, 42, 0.4);
+            box-shadow: 0 0 30px rgba(139, 26, 26, 0.3);
+        }
+
+        .show-card:hover::before {
+            opacity: 1;
+        }
+
+        .show-date {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .show-venue {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 1.2rem;
+            color: var(--cream);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .show-location {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.85rem;
+            color: var(--cream-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .show-details {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.9rem;
+            color: var(--cream);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .show-status {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.75rem;
+            padding: 8px 12px;
+            background: rgba(196, 146, 42, 0.15);
+            border-left: 2px solid var(--gold);
+            color: var(--gold);
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .show-tickets-btn {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 255, 255, 0.1));
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            color: var(--red-bright);
+            text-decoration: none;
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .show-tickets-btn:hover {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.4), rgba(0, 255, 255, 0.2));
+            border-color: rgba(0, 255, 255, 0.6);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+            color: var(--red-bright);
+        }
+
+        /* GALLERY SECTION */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .gallery-card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 2px;
+            overflow: hidden;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            transition: all 0.4s;
+        }
+
+        .gallery-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            filter: sepia(15%) contrast(1.05);
+            display: block;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.08);
+            filter: sepia(5%) contrast(1.1) brightness(1.05);
+        }
+
+        .gallery-card:hover {
+            box-shadow: 0 0 30px rgba(139, 26, 26, 0.3);
+        }
+
+        .gallery-caption {
+            padding: 16px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 1px solid rgba(196, 146, 42, 0.1);
+        }
+
+        .gallery-caption-title {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--cream);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .gallery-caption-meta {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.75rem;
+            color: var(--cream-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.6;
+        }
+
+        .gallery-caption-meta span {
+            display: block;
+        }
+
+        .gallery-caption-stat {
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        /* CONTACT SECTION */
+        .contact-content {
+            background: var(--bg-card);
+            border: 1px solid rgba(196, 146, 42, 0.2);
+            border-radius: 2px;
+            padding: 80px 60px;
+            text-align: center;
+            margin-top: 60px;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .contact-content::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), var(--red-bright), var(--gold), transparent);
+        }
+
+        .contact-content::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(196, 146, 42, 0.3), transparent);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin: 50px 0;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-label {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--gold);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .contact-value {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--cream-dim);
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .contact-value a {
+            color: var(--cream);
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .contact-value a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .contact-value a:hover {
+            color: var(--gold-light);
+            text-shadow: 0 0 12px rgba(196, 146, 42, 0.4);
+        }
+
+        .contact-value a:hover::after {
+            width: 100%;
+        }
+
+        /* SOCIAL LINKS */
+        .socials-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border: 1px solid rgba(196, 146, 42, 0.25);
+            border-radius: 2px;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: rgba(10, 6, 3, 0.6);
+            position: relative;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 2px;
+            background: linear-gradient(135deg, rgba(196,146,42,0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .social-btn svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            fill: currentColor;
+        }
+
+        .social-btn img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .social-btn:hover {
+            border-color: rgba(196, 146, 42, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 26, 26, 0.3), 0 0 15px rgba(196, 146, 42, 0.15);
+        }
+
+        .social-btn:hover::before {
+            opacity: 1;
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(4, 2, 1, 0.95);
+            border-top: 1px solid rgba(196, 146, 42, 0.2);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer::before {
+            content: '✦  ✦  ✦';
+            display: block;
+            font-size: 0.7rem;
+            color: var(--gold);
+            letter-spacing: 8px;
+            opacity: 0.5;
+            margin-bottom: 30px;
+        }
+
+        footer p {
+            margin: 8px 0;
+            font-family: Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            color: var(--cream-dim);
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-align: justify;
+            text-align-last: center;
+        }
+
+        .footer-highlight {
+            font-family: Helvetica, Arial, sans-serif;
+            color: var(--gold-light);
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(196, 146, 42, 0.3);
+        }
+
+        /* SCROLL TO TOP */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 46px;
+            height: 46px;
+            background: rgba(10, 6, 3, 0.9);
+            border: 1px solid rgba(196, 146, 42, 0.3);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--gold);
+            font-size: 1.2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            z-index: 99;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .scroll-top:hover {
+            background: rgba(139, 26, 26, 0.4);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(196, 146, 42, 0.2);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .about-grid,
+            .album-container,
+            .album-content-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .about-text {
+                padding-right: 0;
+            }
+
+            .stats-grid {
+                grid-column: 1;
+                padding-left: 0;
+            }
+
+            .album-text {
+                padding-left: 0;
+            }
+
+            .album-image {
+                padding-right: 0;
+            }
+
+            section {
+                padding: 70px 40px;
+            }
+
+            section h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-content {
+                gap: 20px;
+                padding: 0 20px;
+            }
+
+            .navbar a {
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .contact-content {
+                padding: 40px 20px;
+            }
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .navbar, .scroll-top { display: none; }
+            section { padding: 30px 20px; }
+            a { color: black; }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a onclick="scrollToSection('about')">Sobre La Banda</a>
+            <a onclick="scrollToSection('album')">Álbum</a>
+            <a onclick="scrollToSection('audio')">Escucha</a>
+            <a onclick="scrollToSection('watch')">Ver</a>
+            <a onclick="scrollToSection('moments')">Momentos</a>
+            <a onclick="scrollToSection('shows')">Conciertos</a>
+            <a onclick="scrollToSection('live')">En Vivo</a>
+            <a onclick="scrollToSection('members')">Banda</a>
+            <a onclick="scrollToSection('metrics')">Estadísticas</a>
+            <a onclick="scrollToSection('gallery')">Galería</a>
+            <a onclick="scrollToSection('contact')">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- HERO / COVER -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <img src="./assets/logos/LOGO NPD.png" alt="No Project Disco Logo">
+            </div>
+            <h1>NO PROJECT DISCO</h1>
+            <p class="hero-subtitle">Electropop • New Wave • Funk</p>
+            <p class="hero-year">Press Kit 2026 | Colima, México 🇲🇽</p>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>Sobre La Banda</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p><strong>No Project Disco</strong> es un proyecto de <strong>electro pop, funk y disco</strong> originario de <strong>Colima, México</strong>, formado en 2020 por <strong>Alejandro (productor/músico/compositor)</strong>, <strong>Egor/Erick (frontman/músico)</strong> y <strong>Alberto (músico/coordinación de redes)</strong>.</p>
+
+                <p>Construimos una propuesta sonora y visual que prioriza <strong>la experiencia en vivo, el movimiento y el carácter performático del baile</strong>. Nuestro sonido se caracteriza por <strong>líneas de sintetizador contundentes, grooves hipnóticos</strong> y una narrativa que oscila entre ironía, sátira, introspección y provocación.</p>
+
+                <p><strong>Visualmente, incorporamos:</strong> proyección de video en vivo con CCTV, efectos dinámicos, animaciones sincronizadas y un personaje performático único que genera conexión inmediata con la audiencia. Cada show es una experiencia multisensorial donde la música, la proyección y el performance convergen.</p>
+
+                <p>Todos nuestros lanzamientos son composición, producción, mezcla y masterización <strong>100% independiente</strong>. Hemos compartido escenario con proyectos como <strong>Porter, Valgur y Babas Tutsipop</strong>. Dirigidos a público joven, alternativo e hispanohablante a nivel nacional.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">93.4k</div>
+                    <div class="stat-label">Oyentes Totales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">164k</div>
+                    <div class="stat-label">Reproducciones</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4k+</div>
+                    <div class="stat-label">Seguidores IG</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Países</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALBUM -->
+    <section id="album">
+        <video class="album-bg-video" autoplay muted loop playsinline>
+            <source src="./assets/videos/Símbolo de la noche.mp4" type="video/mp4">
+        </video>
+        <h2>Romper La Noche</h2>
+        <div class="album-full-layout">
+            <div class="album-image">
+                <img src="./assets/fotos/ROMPER_LA_NOCHE_PORTADA.jpg" alt="Romper La Noche Album Cover">
+            </div>
+
+            <div class="album-text">
+                <p><strong>Romper La Noche</strong> es el <strong>álbum debut</strong> de No Project Disco, disponible desde <strong>24 de enero 2026</strong> en todas las plataformas digitales.</p>
+
+                <p>Con <strong>8 canciones originales</strong>, el álbum recorre <strong>el azar, la autocrítica, los excesos y la oposición a la manipulación</strong>. Un espacio donde las emociones, contradicciones y el baile se convierten en ritual. Cada canción explora la tensión entre la introspección lírica y la compulsión al movimiento.</p>
+
+                <p><strong>Concepto:</strong> La noche es planteada como un <strong>espacio de liberación sagrada</strong>, donde se suspenden las normas y emerge la autenticidad a través del movimiento corporal. El álbum aborda temas de control, libertad, vulnerabilidad y catarsis desde múltiples perspectivas narrativas.</p>
+
+                <p><strong>Sonoridad:</strong> Síntesis de electropop, new wave y funk rítmico. Producción lírica en español, grooves hipnóticos y layers sintetizados que crean tensión emocional entre la introspección y el baile.</p>
+
+                <p><strong>Producción:</strong> Composición, producción, mezcla y masterización 100% independiente por NPD. Grabación en estudio casero con procesamiento profesional. Distribución digital independiente a través de agregadores digitales.</p>
+            </div>
+
+            <div class="album-text-bottom">
+                <p>Cada track en <strong>Romper La Noche</strong> es una ventana hacia diferentes dimensiones emocionales, donde la danza se convierte en un acto de resistencia y liberación. El sonido hipnótico de los sintetizadores se entremezcla con ritmos que invitan al movimiento corporal, creando una experiencia que trasciende lo meramente auditivo.</p>
+
+                <p>Este álbum representa la visión colectiva de No Project Disco: un espacio donde la música, la performance y la proyección visual convergen para crear rituales nocturnos que cuestionen, provoquen y liberen. <strong>Disponible ahora en Spotify, Apple Music y todas las plataformas digitales.</strong></p>
+            </div>
+
+            <div class="album-contra-portada-inline">
+                <img src="./RLN_Contra portada_Fondo gris.png" alt="Romper La Noche - Contra Portada">
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SHOWS -->
+    <section id="shows">
+        <h2>Próximos Conciertos</h2>
+        <div class="shows-grid">
+            <div class="show-card">
+                <div class="show-card-image">
+                    <img src="./assets/fotos/Copia de babas-tutsipop-los-flakos-y-no-project-disco-en-colima-500792-rec.jpg" alt="Babas Tutsipop x Los Flakos x No Project Disco">
+                </div>
+                <div class="show-date">📅 4 de Julio, 2026</div>
+                <div class="show-venue">Foro DMT</div>
+                <div class="show-location">Colima, México</div>
+                <div class="show-details">
+                    Babas Tutsipop llega a Colima con el "Cómprame Tour" y nuevas canciones. Se arma la noche con Los Flakos y No Project Disco en Foro DMT, amigxs, calorcito, colores, & slam amistoso.
+                </div>
+                <div class="show-status">✓ Confirmado</div>
+                <a href="https://www.passline.com/eventos/babas-tutsipop-los-flakos-y-no-project-disco-en-colima" class="show-tickets-btn" target="_blank">Comprar Boletos</a>
+            </div>
+            <div class="show-card">
+                <div class="show-date">🎪 2026 (Próximamente)</div>
+                <div class="show-venue">Ritual de Medianoche Tour</div>
+                <div class="show-location">Nacional</div>
+                <div class="show-details">
+                    Gira especulativa por ciudades del territorio mexicano en expansión. Experiencias multisensoriales, proyecciones CCTV en vivo y performances único en cada ciudad. Más detalles por confirmarse.
+                </div>
+                <div class="show-status">➜ En Desarrollo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LIVE DETAILS -->
+    <section id="live">
+        <h2>Detalles En Vivo</h2>
+
+        <div class="live-formations">
+            <div class="formation-card">
+                <div class="formation-title">Banda Completa</div>
+                <div class="formation-detail">
+                    <strong>Formación</strong>
+                    4 músicos + Ingeniero de Audio
+                </div>
+                <div class="formation-detail">
+                    <strong>Integrantes</strong>
+                    Egor Centrísimo (voz) • Alejandro Incendios (guitarra/synths/bajo) • Alberto Kilates (synth bass/keys) • Baterista (según evento)
+                </div>
+                <div class="formation-detail">
+                    <strong>Duración</strong>
+                    45 a 75 minutos (configurable)
+                </div>
+                <div class="formation-detail">
+                    <strong>Carga de Equipo</strong>
+                    Mínimo 3 horas antes
+                </div>
+                <div class="formation-detail">
+                    <strong>Prueba de Sonido</strong>
+                    Mínimo 90 minutos
+                </div>
+            </div>
+
+            <div class="formation-card">
+                <div class="formation-title">Trío</div>
+                <div class="formation-detail">
+                    <strong>Formación</strong>
+                    3 músicos
+                </div>
+                <div class="formation-detail">
+                    <strong>Integrantes</strong>
+                    Egor Centrísimo (voz) • Alejandro Incendios (guitarra/synths/bajo) • Alberto Kilates (synth bass/keys)
+                </div>
+                <div class="formation-detail">
+                    <strong>Duración</strong>
+                    45 a 60 minutos (configurable)
+                </div>
+                <div class="formation-detail">
+                    <strong>Carga de Equipo</strong>
+                    Mínimo 2 horas antes
+                </div>
+                <div class="formation-detail">
+                    <strong>Prueba de Sonido</strong>
+                    Mínimo 60 minutos
+                </div>
+            </div>
+        </div>
+
+        <div class="live-requirements">
+            <h3>Propuesta Técnica</h3>
+            <div class="requirements-list">
+                <div class="requirement-item">
+                    <strong>🎥 Componente Visual</strong>
+                    <p>Proyección en vivo CCTV con efectos dinámicos y animaciones sincronizadas. Pantalla mínimo 5m² recomendada.</p>
+                </div>
+                <div class="requirement-item">
+                    <strong>🔊 Audio</strong>
+                    <p>Consola digital 24+ canales. PA mínimo 2000W. Monitores IEM independientes para banda.</p>
+                </div>
+                <div class="requirement-item">
+                    <strong>💡 Iluminación</strong>
+                    <p>Diseño dinámico sincronizado con proyecciones. Luces ajustables según propuesta del show.</p>
+                </div>
+                <div class="requirement-item">
+                    <strong>👤 Personal Técnico</strong>
+                    <p>Sonidista + Iluminador recomendado. Ingeniero técnico se lleva propio si no hay disponibilidad.</p>
+                </div>
+            </div>
+            <div style="margin-top: 30px; padding: 20px; background: rgba(196, 146, 42, 0.08); border-left: 2px solid rgba(196, 146, 42, 0.3); border-radius: 2px;">
+                <p style="font-size: 0.9rem; color: var(--cream-dim); margin-bottom: 15px;">
+                    Descargar riders técnicos completos para detalle de equipamiento específico:
+                </p>
+                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+                    <a href="./riders/NPD_RIDER_FULLBAND_v2.html" style="display: inline-flex; align-items: center; padding: 10px 16px; background: rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); color: var(--red-bright); text-decoration: none; font-family: Helvetica, Arial, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; border-radius: 2px; transition: all 0.3s;" target="_blank">
+                        📋 Rider Banda Completa
+                    </a>
+                    <a href="./riders/NPD_RIDER_TRIO_v1.html" style="display: inline-flex; align-items: center; padding: 10px 16px; background: rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); color: var(--red-bright); text-decoration: none; font-family: Helvetica, Arial, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; border-radius: 2px; transition: all 0.3s;" target="_blank">
+                        📋 Rider Trío
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMBERS -->
+    <section id="members">
+        <h2>Integrantes</h2>
+        <div class="members-container">
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="./assets/fotos/alejandro_incendios.jpg" alt="Alejandro Incendios">
+                    <div class="member-overlay"></div>
+                </div>
+                <div class="member-info">
+                    <div class="member-name">Alejandro Incendios</div>
+                    <div class="member-role">Guitarra • Synths • Bajo</div>
+                    <div class="member-skills">Dirección Sonora • Composición • Producción • Arreglos</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="./assets/fotos/egor_centrismo.jpg" alt="Egor Centrísimo">
+                    <div class="member-overlay"></div>
+                </div>
+                <div class="member-info">
+                    <div class="member-name">Egor Centrísimo</div>
+                    <div class="member-role">Voz • Sintetizador</div>
+                    <div class="member-skills">Concepto • Narrativa • Propuesta Visual • Performance</div>
+                </div>
+            </div>
+
+            <div class="member-card">
+                <div class="member-image">
+                    <img src="./assets/fotos/alberto_kilates.jpg" alt="Alberto Kilates">
+                    <div class="member-overlay"></div>
+                </div>
+                <div class="member-info">
+                    <div class="member-name">Alberto Kilates</div>
+                    <div class="member-role">Synth Bass • Keys • Composición</div>
+                    <div class="member-skills">Grooves • Ritmo • Bajos Hipnóticos • Producción</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METRICS -->
+    <section id="metrics">
+        <h2>Por Los Números</h2>
+        <div class="metrics-grid">
+            <div class="metric-box">
+                <div class="metric-label">Oyentes Spotify</div>
+                <div class="metric-value">93.4k</div>
+                <div class="metric-bar">
+                    <div class="metric-bar-fill" style="--width: 85%;"></div>
+                </div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Reproducciones Totales</div>
+                <div class="metric-value">164k</div>
+                <div class="metric-bar">
+                    <div class="metric-bar-fill" style="--width: 80%;"></div>
+                </div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Seguidores Instagram</div>
+                <div class="metric-value">4k+</div>
+                <div class="metric-bar">
+                    <div class="metric-bar-fill" style="--width: 65%;"></div>
+                </div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Tasa de Engagement IG</div>
+                <div class="metric-value">2.8%</div>
+                <div class="metric-bar">
+                    <div class="metric-bar-fill" style="--width: 95%;"></div>
+                </div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Alcance Top Reel</div>
+                <div class="metric-value">70.4k</div>
+                <div class="metric-bar">
+                    <div class="metric-bar-fill" style="--width: 92%;"></div>
+                </div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Países Alcanzados</div>
+                <div class="metric-value">15+</div>
+                <div class="metric-bar">
+                    <div class="metric-bar-fill" style="--width: 70%;"></div>
+                </div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Público Principal</div>
+                <div class="metric-value">18-35</div>
+                <div class="metric-bar">
+                    <div class="metric-bar-fill" style="--width: 88%;"></div>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 40px; color: var(--cream-dim); font-size: 0.9rem; font-style: italic;">
+            Datos actualizados a Mayo 2026. Instagram destaca con engagement rate 6x superior a media de industria.
+            <strong>Reel "Ruleta Del Amor"</strong> alcanzó 70,404 personas en primera semana del álbum.
+        </p>
+    </section>
+
+    <!-- AUDIO -->
+    <section id="audio">
+        <h2>Escucha Ahora</h2>
+        <div class="audio-content">
+            <p class="audio-description">
+                Escucha <em>Romper La Noche</em>, el álbum debut de No Project Disco.
+                Un viaje por el azar, la autocrítica, los excesos y la oposición a la manipulación.
+                Disponible en todas las plataformas digitales.
+            </p>
+            <div class="spotify-embed-container">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/3TBEbNx85x4X9uxxMwfqeG?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- WATCH / PERFORMANCE -->
+    <section id="watch">
+        <h2>Ver En Vivo</h2>
+        <div class="video-container">
+            <p class="video-description">
+                Mira la performance en vivo de No Project Disco: videografía profesional, proyecciones en CCTV,
+                sincronización total entre música y visuales. Cada show es una experiencia multisensorial.
+            </p>
+            <div class="video-wrapper">
+                <iframe title="No Project Disco - Live Performance" src="https://www.youtube-nocookie.com/embed/q7UnWOU61x4" width="100%" height="100%" frameborder="0" allowfullscreen="allowfullscreen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOMENTS -->
+    <section id="moments">
+        <h2>Momentos de Instagram</h2>
+        <p style="text-align: center; color: var(--cream-dim); margin: 30px 0 50px; font-size: 0.95rem;">
+            Clips seleccionados del contenido en Instagram. Reels, performances en vivo y momentos detrás de cámaras.
+        </p>
+        <div class="moments-grid">
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18065468576260913.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18075503803709572.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18530883196041714.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17880421428423714.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18039358679467560.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17853770652504313.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17860232166494044.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17862832743490562.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17871978612441743.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17872887030355258.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17873898867329483.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17881499262353828.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17878097673333181.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17919033309158699.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17930231781179010.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17947944843043961.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17982448226907397.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/17982786278912722.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18023352230564507.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18026738705736799.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18028279910518813.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18081416048518478.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18104099177500000.mp4" type="video/mp4"></video></div>
+            <div class="moment-video"><video controls poster=""><source src="./assets/videos/18103985653549068.mp4" type="video/mp4"></video></div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <h2>Identidad Visual</h2>
+        <div class="gallery-grid">
+            <!-- ORIGINAL GALLERY -->
+            <div class="gallery-card">
+                <div class="gallery-image-wrapper">
+                    <img src="./assets/fotos/npd_band_color_1.png" alt="Studio Session">
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-image-wrapper">
+                    <img src="./assets/fotos/npd_band_color_2.png" alt="Studio Session">
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-image-wrapper">
+                    <img src="./assets/fotos/npd_band_color_3.png" alt="Studio Session">
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-image-wrapper">
+                    <img src="./assets/fotos/NPD_SESH_I.jpg" alt="Professional Photoshoot">
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-image-wrapper">
+                    <img src="./assets/fotos/NPDCDMX9.png" alt="Live Performance CDMX">
+                </div>
+            </div>
+
+            <!-- INSTAGRAM MOMENTS - ROMPER LA NOCHE CAMPAIGN -->
+            <div class="gallery-card">
+                <div class="gallery-image-wrapper">
+                    <img src="./assets/fotos/17844626646686451.jpg" alt="Ritual para el Símbolo de la Noche">
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-image-wrapper">
+                    <img src="./assets/fotos/17860934463583560.jpg" alt="Viernes de Oración">
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-image-wrapper">
+                    <img src="./assets/fotos/17875898592521318.jpg" alt="Ruleta del Amor - Reel">
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-image-wrapper">
+                    <img src="./assets/fotos/17917959189292528.jpg" alt="Album Release - Full Experience">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contáctanos</h2>
+        <div class="contact-content">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-label">📧 Correo</div>
+                    <div class="contact-value"><a href="mailto:noprojectdisco@gmail.com">noprojectdisco@gmail.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">📱 WhatsApp</div>
+                    <div class="contact-value"><a href="tel:+523125951106">(+52) 312 595 1106</a></div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-label">🎤 Reservación</div>
+                    <div class="contact-value"><a href="mailto:noprojectdisco@gmail.com">Contactar</a></div>
+                </div>
+            </div>
+
+            <h3 style="font-family: Helvetica, Arial, sans-serif; color: var(--gold-light); margin: 50px 0 30px; font-size: 0.85rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 400; text-shadow: 0 0 15px rgba(196,146,42,0.3);">Síguenos</h3>
+            <div class="socials-grid">
+                <a href="https://www.instagram.com/noprojectdisco/" class="social-btn" title="Instagram">
+                    <img src="./assets/icons/instagram_official.svg" alt="Instagram">
+                </a>
+                <a href="https://open.spotify.com/intl-es/artist/3TBEbNx85x4X9uxxMwfqeG" class="social-btn" title="Spotify">
+                    <img src="./assets/icons/spotify_official.png" alt="Spotify">
+                </a>
+                <a href="https://www.youtube.com/channel/UCKtKXEPFD4B3_XLOkxm2ruQ" class="social-btn" title="YouTube">
+                    <img src="./assets/icons/youtube_official.svg" alt="YouTube">
+                </a>
+                <a href="https://www.facebook.com/NoProjectDisco/" class="social-btn" title="Facebook">
+                    <img src="./assets/icons/facebook_official.svg" alt="Facebook">
+                </a>
+                <a href="https://music.apple.com/mx/artist/no-project-disco/1532839163" class="social-btn" title="Apple Music">
+                    <img src="./assets/icons/applemusic_official.png" alt="Apple Music">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 <span class="footer-highlight">No Project Disco</span></p>
+        <p>Producción Independiente | Colima, México 🇲🇽</p>
+        <p style="margin-top: 20px; font-size: 0.85rem;">Press Kit Oficial | Romper La Noche - Álbum Debut</p>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</div>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const scrollTopBtn = document.querySelector('.scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
