@@ -446,6 +446,30 @@
             font-weight: 400;
         }
 
+        .about-photo {
+            grid-column: 2;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid rgba(196, 146, 42, 0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 40px rgba(139, 26, 26, 0.2);
+            aspect-ratio: 4 / 5;
+            transition: all 0.4s;
+        }
+
+        .about-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: sepia(15%) contrast(1.05);
+        }
+
+        .about-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(139, 26, 26, 0.3), 0 0 60px rgba(196, 146, 42, 0.15);
+            border-color: rgba(196, 146, 42, 0.45);
+        }
+
         /* ALBUM SECTION */
         #album {
             position: relative;
@@ -1583,7 +1607,8 @@
                 padding-right: 0;
             }
 
-            .stats-grid {
+            .stats-grid,
+            .about-photo {
                 grid-column: 1;
                 padding-left: 0;
             }
@@ -1763,23 +1788,8 @@
 
                 <p>Todos nuestros lanzamientos son composición, producción, mezcla y masterización <strong>100% independiente</strong>. Hemos compartido escenario con proyectos como <strong>Porter, Valgur y Babas Tutsipop</strong>. Dirigidos a público joven, alternativo e hispanohablante a nivel nacional.</p>
             </div>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">93.4k</div>
-                    <div class="stat-label">Oyentes Totales</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">164k</div>
-                    <div class="stat-label">Reproducciones</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4k+</div>
-                    <div class="stat-label">Seguidores IG</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Países</div>
-                </div>
+            <div class="about-photo">
+                <img loading="lazy" decoding="async" src="./assets/fotos/NPD_SESH_I.jpg" alt="No Project Disco — sesión de fotos">
             </div>
         </div>
     </section>
