@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noprojectdisco.github.io/sitemap.xml
