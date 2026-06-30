@@ -1,0 +1,6 @@
+.DS_Store
+**/.DS_Store
+
+# Archivos fuente de letras (working files) — no se publican; solo el HTML generado
+letras/*.txt
+letras/*.docx
