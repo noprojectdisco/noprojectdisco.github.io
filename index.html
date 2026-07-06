@@ -242,10 +242,16 @@
             margin: 0 auto;
             display: flex;
             justify-content: flex-start;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none;
             gap: clamp(1rem, 2.5vw, 2.2rem);
             padding: 1.1rem var(--gutter);
         }
+
+        .navbar-content::-webkit-scrollbar { display: none; }
+
+        .navbar a { white-space: nowrap; }
 
         .navbar a {
             color: var(--cream-dim);
@@ -254,10 +260,16 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.16em;
-            transition: color 0.25s ease;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.25s ease, border-color 0.25s ease;
         }
 
+        .navbar a b { color: var(--gold); font-weight: 500; margin-right: 5px; }
+
         .navbar a:hover { color: var(--cream); }
+
+        .navbar a.active { color: var(--cream); border-bottom-color: var(--gold); }
 
         /* ============================================================
            SECTIONS + HEADINGS
@@ -280,14 +292,9 @@
             margin-bottom: var(--s6);
         }
 
-        section h2::before {
-            content: '';
-            display: block;
-            width: 56px;
-            height: 2px;
-            background: var(--gold);
-            margin-bottom: var(--s3);
-        }
+        .sec-head { margin-bottom: var(--s6); }
+        .sec-head .eyebrow { margin-bottom: var(--s3); }
+        .sec-head h2 { margin-bottom: 0; }
 
         /* ============================================================
            HERO — asymmetric editorial
@@ -735,6 +742,71 @@
         .scroll-top:hover { border-color: var(--gold); }
 
         /* ============================================================
+           NOTES (editorial footnotes)
+           ============================================================ */
+        .section-note {
+            margin-top: var(--s5);
+            max-width: 62ch;
+            font-size: 0.9rem;
+            color: var(--cream-dim);
+            line-height: 1.7;
+            border-left: 2px solid var(--line-gold);
+            padding-left: var(--s3);
+        }
+        .section-note strong { color: var(--cream); font-weight: 500; }
+
+        .section-intro {
+            color: var(--cream-dim);
+            margin: 0 0 var(--s5);
+            font-size: 0.95rem;
+            max-width: 60ch;
+        }
+
+        /* ============================================================
+           MOTION — one hero reveal + quiet section-head reveals.
+           Everything gated on no-preference and .js (no-JS stays visible).
+           ============================================================ */
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-mark,
+            .hero-subtitle,
+            .hero-year,
+            .hero-cta {
+                opacity: 0;
+                animation: npd-fade 0.9s ease forwards;
+            }
+            .hero-mark { animation-delay: 0.05s; }
+            .hero-subtitle { animation-delay: 0.38s; }
+            .hero-year { animation-delay: 0.46s; }
+            .hero-cta { animation-delay: 0.54s; }
+
+            .hero h1 .ln {
+                display: block;
+                opacity: 0;
+                transform: translateY(0.35em);
+                animation: npd-rise 0.85s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+            }
+            .hero h1 .ln:nth-child(1) { animation-delay: 0.1s; }
+            .hero h1 .ln:nth-child(2) { animation-delay: 0.19s; }
+            .hero h1 .ln:nth-child(3) { animation-delay: 0.28s; }
+
+            .hero-visual img {
+                transform: scale(1.05);
+                animation: npd-settle 1.5s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+            }
+
+            .js .sec-head {
+                opacity: 0;
+                transform: translateY(18px);
+                transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.6, 0.2, 1);
+            }
+            .js .sec-head.in { opacity: 1; transform: none; }
+        }
+
+        @keyframes npd-fade { to { opacity: 1; } }
+        @keyframes npd-rise { to { opacity: 1; transform: none; } }
+        @keyframes npd-settle { to { transform: none; } }
+
+        /* ============================================================
            RESPONSIVE
            ============================================================ */
         @media (max-width: 1024px) {
@@ -769,22 +841,23 @@
     </style>
 </head>
 <body>
+    <script>document.documentElement.classList.add('js');</script>
     <div class="animated-bg"></div>
 
     <!-- NAVIGATION -->
     <nav class="navbar">
         <div class="navbar-content">
-            <a href="#about">Sobre La Banda</a>
-            <a href="#album">Álbum</a>
-            <a href="#shows">Conciertos</a>
-            <a href="#live">En Vivo</a>
-            <a href="#members">Banda</a>
-            <a href="#metrics">Estadísticas</a>
-            <a href="#audio">Escucha</a>
-            <a href="#watch">Ver</a>
-            <a href="#moments">Momentos</a>
-            <a href="#gallery">Galería</a>
-            <a href="#contact">Contacto</a>
+            <a href="#about"><b>01</b>Sobre La Banda</a>
+            <a href="#album"><b>02</b>Álbum</a>
+            <a href="#shows"><b>03</b>Conciertos</a>
+            <a href="#live"><b>04</b>En Vivo</a>
+            <a href="#members"><b>05</b>Banda</a>
+            <a href="#metrics"><b>06</b>Estadísticas</a>
+            <a href="#audio"><b>07</b>Escucha</a>
+            <a href="#watch"><b>08</b>Ver</a>
+            <a href="#moments"><b>09</b>Momentos</a>
+            <a href="#gallery"><b>10</b>Galería</a>
+            <a href="#contact"><b>11</b>Contacto</a>
         </div>
     </nav>
 
@@ -815,7 +888,10 @@
 
     <!-- ABOUT -->
     <section id="about">
-        <h2>Sobre La Banda</h2>
+        <div class="sec-head">
+            <span class="eyebrow">01 · Perfil</span>
+            <h2>Sobre La Banda</h2>
+        </div>
         <div class="about-grid">
             <div class="about-text">
                 <p><strong>No Project Disco</strong> es un proyecto de electro pop, funk y disco originario de <strong>Colima, México</strong>, formado en 2020 por Alejandro Incendios (producción, composición y arreglos), Egor Centrísimo (voz, concepto y performance) y Alberto Kilates (synth bass, grooves y composición).</p>
@@ -837,7 +913,10 @@
         <video class="album-bg-video" autoplay muted loop playsinline>
             <source src="./assets/videos/Símbolo de la noche.mp4" type="video/mp4">
         </video>
-        <h2>Romper La Noche</h2>
+        <div class="sec-head">
+            <span class="eyebrow">02 · Álbum Debut</span>
+            <h2>Romper La Noche</h2>
+        </div>
         <div class="album-full-layout">
             <div class="album-image">
                 <img loading="lazy" decoding="async" src="./assets/fotos/ROMPER_LA_NOCHE_PORTADA.jpg" alt="Romper La Noche Album Cover">
@@ -870,7 +949,10 @@
 
     <!-- SHOWS -->
     <section id="shows">
-        <h2>Próximos Conciertos</h2>
+        <div class="sec-head">
+            <span class="eyebrow">03 · Agenda</span>
+            <h2>Próximos Conciertos</h2>
+        </div>
         <div class="shows-grid">
             <div class="show-card">
                 <div class="show-card-image">
@@ -899,7 +981,10 @@
 
     <!-- LIVE DETAILS -->
     <section id="live">
-        <h2>Detalles En Vivo</h2>
+        <div class="sec-head">
+            <span class="eyebrow">04 · Producción</span>
+            <h2>Detalles En Vivo</h2>
+        </div>
 
         <div class="live-formations">
             <div class="formation-card">
@@ -971,17 +1056,13 @@
                     <p>Sonidista + iluminador recomendados. La banda lleva su propio ingeniero técnico si no hay disponibilidad.</p>
                 </div>
             </div>
-            <div style="margin-top: 30px; padding: 20px; background: rgba(196, 146, 42, 0.08); border-left: 2px solid rgba(196, 146, 42, 0.3); border-radius: 2px;">
+            <div style="margin-top: 30px;">
                 <p style="font-size: 0.9rem; color: var(--cream-dim); margin-bottom: 15px;">
-                    Descargar riders técnicos completos para detalle de equipamiento específico:
+                    Riders técnicos completos para detalle de equipamiento específico:
                 </p>
-                <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <a href="./riders/NPD_RIDER_FULLBAND_v2.html" style="display: inline-flex; align-items: center; padding: 10px 16px; background: rgba(196, 146, 42, 0.15); border: 1px solid rgba(196, 146, 42, 0.35); color: var(--gold-light); text-decoration: none; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; border-radius: 2px; transition: all 0.3s;" target="_blank">
-                        Rider Banda Completa
-                    </a>
-                    <a href="./riders/NPD_RIDER_TRIO_v1.html" style="display: inline-flex; align-items: center; padding: 10px 16px; background: rgba(196, 146, 42, 0.15); border: 1px solid rgba(196, 146, 42, 0.35); color: var(--gold-light); text-decoration: none; font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; border-radius: 2px; transition: all 0.3s;" target="_blank">
-                        Rider Trío
-                    </a>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a class="btn btn-ghost" href="./riders/NPD_RIDER_FULLBAND_v2.html" target="_blank" rel="noopener">Rider Banda Completa</a>
+                    <a class="btn btn-ghost" href="./riders/NPD_RIDER_TRIO_v1.html" target="_blank" rel="noopener">Rider Trío</a>
                 </div>
             </div>
         </div>
@@ -989,7 +1070,10 @@
 
     <!-- MEMBERS -->
     <section id="members">
-        <h2>Integrantes</h2>
+        <div class="sec-head">
+            <span class="eyebrow">05 · La Banda</span>
+            <h2>Integrantes</h2>
+        </div>
         <div class="members-container">
             <div class="member-card">
                 <div class="member-image">
@@ -1031,7 +1115,10 @@
 
     <!-- METRICS -->
     <section id="metrics">
-        <h2>Por Los Números</h2>
+        <div class="sec-head">
+            <span class="eyebrow">06 · Datos</span>
+            <h2>Por Los Números</h2>
+        </div>
         <div class="metrics-grid">
             <div class="metric-box">
                 <div class="metric-label">Oyentes Spotify</div>
@@ -1062,7 +1149,7 @@
                 <div class="metric-value">18-35</div>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 40px; color: var(--cream-dim); font-size: 0.9rem; font-style: italic;">
+        <p class="section-note">
             Datos actualizados a Mayo 2026. Instagram destaca con engagement rate 6x superior a media de industria.
             <strong>Reel "Ruleta Del Amor"</strong> alcanzó 70,404 personas en primera semana del álbum.
         </p>
@@ -1070,7 +1157,10 @@
 
     <!-- AUDIO -->
     <section id="audio">
-        <h2>Escucha Ahora</h2>
+        <div class="sec-head">
+            <span class="eyebrow">07 · Streaming</span>
+            <h2>Escucha Ahora</h2>
+        </div>
         <div class="audio-content">
             <p class="audio-description">
                 <em>Romper La Noche</em>, el álbum debut. Ocho canciones sobre el azar, la autocrítica,
@@ -1084,7 +1174,10 @@
 
     <!-- WATCH / PERFORMANCE -->
     <section id="watch">
-        <h2>Ver En Vivo</h2>
+        <div class="sec-head">
+            <span class="eyebrow">08 · Performance</span>
+            <h2>Ver En Vivo</h2>
+        </div>
         <div class="video-container">
             <p class="video-description">
                 No Project Disco en vivo: proyección CCTV, visuales sincronizados al beat y un performance
@@ -1098,10 +1191,11 @@
 
     <!-- MOMENTS -->
     <section id="moments">
-        <h2>Momentos de Instagram</h2>
-        <p style="text-align: center; color: var(--cream-dim); margin: 30px 0 50px; font-size: 0.95rem;">
-Reels, performances y momentos detrás de cámaras. Lo que pasa cuando nadie posa.
-        </p>
+        <div class="sec-head">
+            <span class="eyebrow">09 · Instagram</span>
+            <h2>Momentos de Instagram</h2>
+        </div>
+        <p class="section-intro">Reels, performances y momentos detrás de cámaras. Lo que pasa cuando nadie posa.</p>
         <div class="moments-grid">
             <div class="moment-video"><video controls preload="metadata" playsinline poster="./assets/videos/posters/18065468576260913.jpg"><source src="./assets/videos/18065468576260913.mp4" type="video/mp4"></video></div>
             <div class="moment-video"><video controls preload="metadata" playsinline poster="./assets/videos/posters/18075503803709572.jpg"><source src="./assets/videos/18075503803709572.mp4" type="video/mp4"></video></div>
@@ -1132,7 +1226,10 @@ Reels, performances y momentos detrás de cámaras. Lo que pasa cuando nadie pos
 
     <!-- GALLERY -->
     <section id="gallery">
-        <h2>Identidad Visual</h2>
+        <div class="sec-head">
+            <span class="eyebrow">10 · Galería</span>
+            <h2>Identidad Visual</h2>
+        </div>
         <div class="gallery-grid">
             <!-- ORIGINAL GALLERY -->
             <div class="gallery-card">
@@ -1187,7 +1284,10 @@ Reels, performances y momentos detrás de cámaras. Lo que pasa cuando nadie pos
 
     <!-- CONTACT -->
     <section id="contact">
-        <h2>Contáctanos</h2>
+        <div class="sec-head">
+            <span class="eyebrow">11 · Booking</span>
+            <h2>Contáctanos</h2>
+        </div>
         <div class="contact-content">
             <div class="contact-grid">
                 <div class="contact-item">
@@ -1204,7 +1304,7 @@ Reels, performances y momentos detrás de cámaras. Lo que pasa cuando nadie pos
                 </div>
             </div>
 
-            <h3 style="font-family: 'Inter', Helvetica, Arial, sans-serif; color: var(--gold-light); margin: 50px 0 30px; font-size: 0.85rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 400; text-shadow: 0 0 15px rgba(196,146,42,0.3);">Síguenos</h3>
+            <h3 class="eyebrow" style="display: block; margin: 50px 0 30px;">Síguenos</h3>
             <div class="socials-grid">
                 <a href="https://www.instagram.com/noprojectdisco/" class="social-btn" title="Instagram">
                     <img src="./assets/icons/instagram_official.svg" alt="Instagram">
@@ -1244,6 +1344,76 @@ Reels, performances y momentos detrás de cámaras. Lo que pasa cuando nadie pos
                 scrollTopBtn.classList.remove('visible');
             }
         });
+
+        const motionOK = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+
+        // Nav scrollspy — marca la sección visible en la barra
+        if ('IntersectionObserver' in window) {
+            const navById = {};
+            document.querySelectorAll('.navbar a[href^="#"]').forEach(a => {
+                navById[a.getAttribute('href').slice(1)] = a;
+            });
+            let activeLink = null;
+            const spy = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && navById[entry.target.id]) {
+                        if (activeLink) activeLink.classList.remove('active');
+                        activeLink = navById[entry.target.id];
+                        activeLink.classList.add('active');
+                    }
+                });
+            }, { rootMargin: '-25% 0px -65% 0px' });
+            document.querySelectorAll('section[id]').forEach(sec => spy.observe(sec));
+
+            // Reveal silencioso de cabeceras de sección (una vez)
+            const heads = document.querySelectorAll('.sec-head');
+            if (motionOK) {
+                const revealer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in');
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.4 });
+                heads.forEach(h => revealer.observe(h));
+            } else {
+                heads.forEach(h => h.classList.add('in'));
+            }
+
+            // Count-up de métricas (respeta reduced motion; omite rangos tipo 18-35)
+            const countUp = el => {
+                const text = el.textContent.trim();
+                const m = text.match(/^(\d+(?:\.\d+)?)(.*)$/);
+                if (!m || /\d/.test(m[2])) return;
+                const target = parseFloat(m[1]);
+                const decimals = (m[1].split('.')[1] || '').length;
+                const suffix = m[2];
+                const t0 = performance.now();
+                const dur = 1200;
+                const tick = now => {
+                    const p = Math.min((now - t0) / dur, 1);
+                    const eased = 1 - Math.pow(1 - p, 3);
+                    el.textContent = (target * eased).toFixed(decimals) + suffix;
+                    if (p < 1) requestAnimationFrame(tick);
+                    else el.textContent = text;
+                };
+                requestAnimationFrame(tick);
+            };
+            if (motionOK) {
+                const counter = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            countUp(entry.target);
+                            obs.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.6 });
+                document.querySelectorAll('.metric-value').forEach(v => counter.observe(v));
+            }
+        } else {
+            document.querySelectorAll('.sec-head').forEach(h => h.classList.add('in'));
+        }
 
         // Control videos - pause other videos when one plays
         const momentVideos = document.querySelectorAll('.moment-video video');
